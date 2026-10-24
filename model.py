@@ -11,8 +11,14 @@ def expected_value(values, probabilities):
     # TODO: return the expected value of the discrete distribution (values, probabilities).
     return np.sum(np.array(values)*np.array(probabilities))
 
-# Step 2 - one_reroll_die_value (not yet solved)
-# TODO: implement
+# Step 2 - one_reroll_die_value
+def one_reroll_die_value(sides):
+    # TODO: return {'value': expected winnings under optimal reroll policy, 'reroll_faces': sorted faces to reroll}
+    mean = expected_value(range(1,sides+1),1/sides)
+    values=[max(faces,mean) for faces in range(1,sides+1)]
+    value=expected_value(values,1/sides)
+
+    return {'value': float(value), 'reroll_faces': [k for k in range(1,sides+1) if k<mean]}
 
 # Step 3 - pay_per_reroll_die_game (not yet solved)
 # TODO: implement
