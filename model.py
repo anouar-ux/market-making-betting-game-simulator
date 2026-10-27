@@ -65,8 +65,17 @@ def make_quotes(fair_value, spread_width):
     # TODO: return a dict with 'bid' and 'ask' symmetric around fair_value with total width spread_width
     return {'bid': fair_value-spread_width/2, 'ask':fair_value+spread_width/2}
 
-# Step 6 - execute_trade (not yet solved)
-# TODO: implement
+# Step 6 - execute_trade
+def execute_trade(state, side, bid, ask, size=1):
+    
+    if side=='buy':
+        cash=state['cash']+ask*size
+        inventory= state['inventory']-size
+    else:
+        cash=state['cash']-bid*size
+        inventory= state['inventory']+size
+    
+    return {'cash': cash, 'inventory':inventory}
 
 # Step 7 - mark_to_market_pnl (not yet solved)
 # TODO: implement
