@@ -42,8 +42,23 @@ def pay_per_reroll_die_game(sides, reroll_cost):
 
     pass
 
-# Step 4 - red_black_card_game_value (not yet solved)
-# TODO: implement
+# Step 4 - red_black_card_game_value
+import numpy as np
+
+def red_black_card_game_value(num_red, num_black):
+    # TODO: return {'value': expected payout under optimal stopping, 'stop_now': whether to stop immediately}.
+    r,b= num_red,num_black
+
+    V=np.zeros((r+1,b+1))
+    for k in range(1,r+1):
+        V[k][0]=k
+
+    for i in range(1,r+1):
+        for j in range(1,b+1):
+            t=i+j
+            V[i][j]=max(i*(1+V[i-1][j])/t + j*(-1+V[i][j-1])/t,0)
+
+    return {'value': V[r][b], 'stop_now': max(V[r][b],0)==0}
 
 # Step 5 - make_quotes (not yet solved)
 # TODO: implement
