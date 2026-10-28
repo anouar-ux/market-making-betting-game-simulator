@@ -1,5 +1,8 @@
 # Market-Making & Betting-Game Simulator
 
+> **Work in progress: 7/14 steps done.** Done so far: expected-value reasoning on dice and card games (optimal stopping rules), symmetric quoting, trade execution and mark-to-market P&L. The adverse-selection and inventory-management part is next.
+
+
 Build a market-making and betting-game simulator from the ground up: start with expected-value reasoning on dice and card games, then implement a quoting engine that trades against an informed counterparty while managing inventory, adverse selection, and P&L across many episodes.
 
 ## How to run
